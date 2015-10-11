@@ -1,0 +1,17 @@
+_body { background: #ccc; }
+_body * { font-family: Verdana; font-size: 20px; font-weight: bold; }
+
+#desktop { width: 90%; margin: auto; }
+
+.math-group { margin-bottom: 1em; overflow: auto; }
+.math-group-narrow { margin-bottom: 1em; overflow: auto; display: inline-block; }
+.math-group-narrow.math-group-center { display: table; margin: auto; }
+.math-group * { font-size: 24px; }
+.math-large-font * { font-size: 28px; }
+
+.math-cell { width: 3em; float: left; border: 1px solid gray; margin: 0.5em; text-align: center; padding: 1em 0; cursor: default; background: gray; }
+.math-result-cell { width: 4em; float: left; border: 1px solid gray; margin: 0.5em; text-align: center; padding: 1.5em 0; cursor: pointer; }
+.math-result-cell:nth-of-type(4n+1) { clear: left; }
+.math-result-shown { background: orange; }
+.math-result-wrong { background: red; }
+.math-result-correct { background: green; }

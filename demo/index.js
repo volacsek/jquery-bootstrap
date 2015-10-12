@@ -7,24 +7,6 @@
 		var $navbar, $content;
 		var myDemo;
 
-/*		function initNavigationSuspends() {
-			$(document).on('game.started', function() {
-				$('.navbar').jqbsNavbar('menuSuspend', { event: 'math.play', suspend: true });
-				$('.navbar').jqbsNavbar('menuSuspend', { event: 'math.pause', suspend: false });
-				$('.navbar').jqbsNavbar('menuSuspend', { event: 'math.stop', suspend: false });
-				});
-			$(document).on('game.paused', function() {
-				$('.navbar').jqbsNavbar('menuSuspend', { event: 'math.play', suspend: false });
-				$('.navbar').jqbsNavbar('menuSuspend', { event: 'math.pause', suspend: true });
-				$('.navbar').jqbsNavbar('menuSuspend', { event: 'math.stop', suspend: false });
-				});
-			$(document).on('game.stopped', function() {
-				$('.navbar').jqbsNavbar('menuSuspend', { event: 'math.play', suspend: false });
-				$('.navbar').jqbsNavbar('menuSuspend', { event: 'math.pause', suspend: true });
-				$('.navbar').jqbsNavbar('menuSuspend', { event: 'math.stop', suspend: true });
-				});
-			}*/
-
 		function init() {
 			$('body').append('<div id="desktop" class="app-desktop"></div>');
 			$('#desktop').append('<div id="header" class="app-header"><nav id="navbar"></nav></div>');
@@ -38,15 +20,16 @@
 					label: 'jqBS demo'
 					},
 				right: [
-					{ label: 'Indít', event: 'math.play', icon: 'play', disabled: true },
-					{ label: 'Szünet', event: 'math.pause', icon: 'pause', disabled: true },
-					{ label: 'Leállít', event: 'math.stop', icon: 'stop', disabled: true }
+					{ label: 'Start', event: 'math.play', icon: 'play', disabled: true },
+					{ label: 'Pause', event: 'math.pause', icon: 'pause', disabled: true },
+					{ label: 'Stop', event: 'math.stop', icon: 'stop', disabled: true }
 					],
 				left: [
-					{ label: 'Válassz egy típust', dropdown: [
+					{ label: 'Select a component', dropdown: [
 						{ label: 'Panel', event: 'demo.panel' },
 						{ label: 'Tab', event: 'demo.tab' },
-						{ label: 'Buttons & button group', event: 'demo.button' }
+						{ label: 'Buttons & button group', event: 'demo.button' },
+						{ separator: true, label: 'jqbs on GitHub', event: 'demo.github' }
 						] }
 					],
 				});
@@ -56,9 +39,9 @@
 			$content.on('demo.panel', myDemo.examplePanel);
 			$content.on('demo.tab', myDemo.exampleTab);
 			$content.on('demo.button', myDemo.exampleButton);
-
-
-//			$content.on('math.message', message);
+			$content.on('demo.github', function(){
+				location.assign('https://github.com/volacsek/jquery-bootstrap'); 
+				});
 			// ----
 			$content.trigger('demo.panel');
 			}

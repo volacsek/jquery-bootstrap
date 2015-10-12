@@ -37,6 +37,6 @@ Install and use
 
 Documentation
 -------------------
-See the [demo](/demo).
+See the [live demo](http://jqbs.pcnet.hu/demo).
 
 Specification coming soon...

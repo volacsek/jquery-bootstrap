@@ -16,47 +16,60 @@ Do you hate the long bootstrap htmls? Can you prefer the simply JSON based confi
 	* maybe have some special case when this solution can not satisfy your imagines -- in there cases you must additional programming that
 
 
-The plugins
+The plugins of collection
 -------------------
-> Namspace prefix of the plugin collection: **jqbs**
+> Used prefix of the collection plugins: **jqbs**
 
-The implemented plugins:
+The implemented plugins: 
 
-* jqbsNavbar
-* jqbsTab -- *tabs* and *pills*, based on bootstrap `nav`
-* jqbsPanel
-* jqbsButtonGroup -- *group* and *toolbar*
-* jqbsButton
+* [jqbsNavbar()](#jqbsnavbar)
+* [jqbsTab()](#jqbstab) -- *tabs* and *pills*, based on bootstrap `nav`
+* [jqbsPanel()](#jqbspanel)
+* [jqbsButtonGroup()](#jqbsbuttongroup) -- *group* and *toolbar*
+* [jqbsButton()](#jqbsbutton)
 
-The *dropdown* type visibility -- such as a dropdown menu -- are implemented in all relevant plugins.
 
 Install and use
 -------------------
  1. Download or clone this repo.
  2. Check the example code or view documentation, how can programming its.
 
+
 Documentation
 -------------------
 See the [live demo](http://jqbs.pcnet.hu/demo).
 See the live demo [script](/demo).
 
-### The jQuery plugins
-#### jqbsNavbar
+### The collection plugins
 
-Property | Type | Default | Description
----|---|---|---
-$eventTarget | jquery element | `$(document)` | Event listener. This can catch the plugin events.
-brand | jqbs-brand | `{ label: '' }` | Set the brand part of navbar.
-left | [jqbs-menu](#jqbs-menu)[] | `[]` | List of left side menu buttons.
-right | [jqbs-menu](#jqbs-menu)[] | `[]` | List of right side menu buttons.
+#### jqbsNavbar()
 
-Method | Params | Return | Description
----|---|---|---
-menuSuspend( *sp* ) | *sp*: [jqbs-suspend](#jqbs-suspend) | - | Set enabled/disabled menu element by event name.
+Create and bind a bootstrap navbar for jQuery selector specified html `<nav>` element.
+**Usage:**
+<pre>
+&lt;nav id="navbarID"&gt;&lt;/nav&gt;
+</pre>
+*javascript:*
+<pre>
+$('#navbarID').jqbsNavbar({ ... navbar specification ... });
+</pre>
 
-#### jqbsTab
-...
-#### jqbsPanel
+The navbar specification is a dataset, what is type of [jqbs-navbar](#jqbs-navbar) model.
+
+#### jqbsTab()
+Create and bind a bootstrap nav -- style of *tabs* or *pills* -- for jQuery selector specified html `<div>` element.
+**Usage:**
+<pre>
+&lt;div id="divID"&gt;&lt;/div&gt;
+</pre>
+*javascript:*
+<pre>
+$('#divID').jqbsTab({ ... navbar specification ... });
+</pre>
+
+The tab or pill specification is a dataset, what is type of [jqbs-tab](#jqbs-tab) model.
+
+#### jqbsPanel()
 Property | Type | Default | Description
 ---|---|---|---
 type | string | `'default'` | Set panel style used by any value of `'default'`, `'primary'`, `'success'`, `'info'`, `'warning'`, `'danger'`.
@@ -67,19 +80,41 @@ body | html | - | The html content of component body.
 
 Method | Params | Return | Description
 ---|---|---|---
-setType( *type* ) | *type*: string | - | Update the **jqbsPanel** `type` value from any of type property set and refresh visibility of component.
-setHeader( *html* ) | *html*: string | - | Set html content of component header.
-setFooter( *html* ) | *html*: string | - | Set html content of component footer.
-setBody( *html* ) | *html*: string | - | Set html content of component body.
+setType(*type*) | *type*:&nbsp;string | - | Update the **jqbsPanel** `type` value from any of type property set and refresh visibility of component.
+setHeader(*html*) | *html*:&nbsp;string | - | Set html content of component header.
+setFooter(*html*) | *html*:&nbsp;string | - | Set html content of component footer.
+setBody(*html*) | *html*:&nbsp;string | - | Set html content of component body.
 
-#### jqbsButtonGroup
+#### jqbsButtonGroup()
 ....
-#### jqbsButton
-...
+#### jqbsButton()
+Create and bind a bootstrap button for jQuery selector specified html `<button>` element.
+**Usage:**
+<pre>
+&lt;button id="btnID"&gt;&lt;/button&gt;
+</pre>
+*javascript:*
+<pre>
+$('#btnID').jqbsButton({ ... button specification ... });
+</pre>
 
-### Used models in plugin collection
+The button specification is a dataset, what is type of [jqbs-button ](#jqbs-button) model.
+
+### Used models in plugins of collection
+#### jqbs-navbar
+Option | Type | Default | Description
+---|---|---|---
+$eventTarget | jquery element | `$(document)` | Event listener. This can catch the plugin events.
+brand | jqbs-brand | `{ label: '' }` | Set the brand part of navbar.
+left | [jqbs-menu](#jqbs-menu)[] | `[]` | List of left side menu buttons.
+right | [jqbs-menu](#jqbs-menu)[] | `[]` | List of right side menu buttons.
+
+Method | Params | Return | Description
+---|---|---|---
+menuSuspend(*sp*) | *sp*: [jqbs-suspend](#jqbs-suspend) | - | Set enabled/disabled menu element by event name.
+
 #### jqbs-menu
-Property | Type | Default | Description
+Option| Type | Default | Description
 ---|---|---|---
 separator | boolean | `false` | Put the separator before the menu element.
 icon | string | - | Put the specified bootstrap glyphicon -- for example: `'start'` -- before the menu label. The property must contain icon name without any prefix.
@@ -87,17 +122,31 @@ event | string | - | The event name will be triggering on click menu event. Targ
 disabled | string | - | Set diasbled menu item.
 active | boolean | - | When is `true` the element class property added `active`.
 panel | string | - | Name of the target panel. Used by **jqbsTab** only.
-dropdown | [jqbs-menu](#jqbs-menu)[] | - | Elements of dropdown menu.
+dropdown | [jqbs&#8209;menu](#jqbs-menu)[] | - | Elements of dropdown menu.
 
-##### Not documented **runtime** properties
-Property | Type | Default | Description
+#####Not documented **runtime** properties of jqbs-menu
+>There are used by contribution between plugins of this collection.
+Option | Type | Default | Description
 ---|---|---|---
 role | string | - | Can be: `'presentation'` or empty.
 toggle | string | - | 
 
 #### jqbs-suspend
-Property | Type | Default | Description
+Option | Type | Default | Description
 ---|---|---|---
 suspend | boolean | - | Suspend on/off.
 event | string | - | Event name to find target menu element.
 
+#### jqbs-button
+Option | Type | Default | Description
+---|---|---|---
+$eventTarget | jquery element | `$(document)` | Event listener. This wrapper can catch the plugin events.
+type | string | `'default'` | Set button style used by any value of `'default'`, `'primary'`, `'success'`, `'info'`, `'warning'`, `'danger'`.
+event | string | - | The event name will be triggering on click menu event. Target depend dropdown | [jqbs&#8209;menu](#jqbs-menu)[] | - | Elements of dropdown menu.
+label | string | `''` | Text of button.
+id  | string | `randomID()` | Value of the html element id property. If it not used than will be an uniq random value of this collection.
+
+#### jqbs-tab
+Option | Type | Default | Description
+---|---|---|---
+type | string | `'tabs'` | Set bootstrap nav style `'tabs'` or `'pills'`.

@@ -6,6 +6,8 @@
 		register: $.fn.jqBS.register,
 		jqbsButton: function(element, options) {
 
+			// TODO: must be implemented the split button styled dropdown
+
 			var $wr=$(element);
 			var s=$.extend(true, {
 				$eventTarget: $(document),
@@ -34,11 +36,12 @@
 				if (s.dropdown && s.dropdown.constructor===Array) {
 					// dropdown
 					$wr.parent().find('[jqbs-event]').each(function (idx, element) {
+						var index=idx;
 						$(this).on('click', function() {
 							if (!$(this).hasClass('disabled') && !$(this).parent().hasClass('disabled')) {
 								var $target=(s.$eventTarget)?s.$eventTarget:$(document);
-								var data={ $element: $(this) };
-								$target.trigger($(this).attr('jqbs-event'), data);
+								var data=s.dropdown[index].data;
+								$target.trigger($(this).attr('jqbs-event'), [index, $(this), data]);
 								}
 							});
 						});
@@ -46,7 +49,7 @@
 				else {
 					// simple button
 					$wr.on('click', function() {
-						if (!$(this).hasClass('disabled') && $(this).attr('jqbs-event')>'') s.$eventTarget.trigger($(this).attr('jqbs-event'), { $element: $(this) });
+						if (!$(this).hasClass('disabled') && $(this).attr('jqbs-event')>'') s.$eventTarget.trigger($(this).attr('jqbs-event'), [index, $(this), s.data]);
 						});
 					}
 				}

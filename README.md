@@ -100,7 +100,20 @@ $('#btnID').jqbsButton({ ... button specification ... });
 
 The button specification is a dataset, what is type of [jqbs-button ](#jqbs-button) model.
 
-### Used models in plugins of collection
+#### jqbsListGroup()
+Create and bind a bootstrap **list-group** for jQuery selector specified html `<div>` element.
+**Usage:**
+<pre>
+&lt;div id="listID"&gt;&lt;/div&gt;
+</pre>
+*javascript:*
+<pre>
+$('#listID').jqbsListGroup({ ... list-group specification ... });
+</pre>
+
+The button specification is a dataset, what is type of [jqbs-listgroup ](#jqbs-listgroup) model.
+
+### Models of the plugin collection
 #### jqbs-navbar
 Option | Type | Default | Description
 ---|---|---|---
@@ -142,7 +155,8 @@ Option | Type | Default | Description
 ---|---|---|---
 $eventTarget | jquery element | `$(document)` | Event listener. This wrapper can catch the plugin events.
 type | string | `'default'` | Set button style used by any value of `'default'`, `'primary'`, `'success'`, `'info'`, `'warning'`, `'danger'`.
-event | string | - | The event name will be triggering on click menu event. Target depend dropdown | [jqbs&#8209;menu](#jqbs-menu)[] | - | Elements of dropdown menu.
+event | string | - | The event name will be triggering on click menu event. Target depend 
+dropdown | [jqbs&#8209;menu](#jqbs-menu)[] | - | Elements of dropdown menu.
 label | string | `''` | Text of button.
 id  | string | `randomID()` | Value of the html element id property. If it not used than will be an uniq random value of this collection.
 
@@ -150,3 +164,39 @@ id  | string | `randomID()` | Value of the html element id property. If it not u
 Option | Type | Default | Description
 ---|---|---|---
 type | string | `'tabs'` | Set bootstrap nav style `'tabs'` or `'pills'`.
+
+#### jqbs-listgroup
+Option | Type | Default | Description
+---|---|---|---
+$eventTarget | jquery element | `$(document)` | Event listener. This wrapper can catch the plugin events.
+type | string | `''` | Set bootstrap contextual style: `'success'` or `'info'` or `'warning'` or `'danger'` when different from default.
+autoActivate | boolean | true | Set the `active` status on the last clicked list item.
+elements | string[]&nbsp;*or*<br>[jqbs&#8209;listitem](#jqbs-listitem)[] | - | Elements of list. *(The both element types can be mixing in the items of list.)*
+event | string | - | Custom event which triggering when clicked the item of list.
+
+#### jqbs-listitem
+Option | Type | Default | Description
+---|---|---|---
+label | string&nbsp;*or*<br>[jqbs&#8209;listitem&#8209;label](#jqbs-listitem-label)[] | - | Simple text or custom content of the item.
+type | string | `''` | Set bootstrap contextual style: `'success'` or `'info'` or `'warning'` or `'danger'` when different from default.
+data | *all* | - | This data will be passed to the `$eventTarget` with event when triggering the custom event.
+
+#### jqbs-listitem-label
+Custom content of list item.
+Option | Type | Default | Description
+---|---|---|---
+header | string | - | Header of list item.
+text | string | - | Text of list item. *(It can be valid html snippet too.)*
+<br><br><br>
+
+<pre>
+Working notes:
+* ------------------
+   TODO:
+   1) rename model from jqbs-menu to jqbs-dropdown ...
+   2) button use data option too ...
+   3) drop jqbs-menu (jqbs-dropdown) runtime properties documentation ...
+   4) not fully missing more content !!!
+* ------------------  
+</pre>
+

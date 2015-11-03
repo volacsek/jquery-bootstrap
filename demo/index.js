@@ -29,7 +29,8 @@
 						{ label: 'Panel', event: 'demo.panel' },
 						{ label: 'Tab', event: 'demo.tab' },
 						{ label: 'Buttons & button group', event: 'demo.button' },
-						{ separator: true, label: 'jqbs on GitHub', event: 'demo.github' }
+						{ label: 'List group', event: 'demo.listgroup' },
+						{ label: 'jqbs on GitHub', event: 'demo.github', separator: true }
 						] }
 					],
 				});
@@ -39,6 +40,7 @@
 			$content.on('demo.panel', myDemo.examplePanel);
 			$content.on('demo.tab', myDemo.exampleTab);
 			$content.on('demo.button', myDemo.exampleButton);
+			$content.on('demo.listgroup', myDemo.exampleListgroup);
 			$content.on('demo.github', function(){
 				location.assign('https://github.com/volacsek/jquery-bootstrap'); 
 				});

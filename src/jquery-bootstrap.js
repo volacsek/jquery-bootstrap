@@ -54,6 +54,10 @@
 			
 		menu: function (options) {
 
+			// TODO: 
+			// 		1) dropdown header; 
+			// 		2) split button style dropdown ... (jquery-bootstrap-button.js)
+
 			var s=$.extend(true, { 
 				role: 'button',
 				appendMenuPanel: function() {},
@@ -67,10 +71,10 @@
 				return '<li role="separator" class="divider"></li>';
 				}
 
-			function renderMenuItem(item, dropdown) {
+			function renderMenuItem(item, dropdown, idx) {
 				var html=(item.separator===true)?renderSeparatorElement():'';
 				var icon=(item.icon)?'<span class="glyphicon glyphicon-'+item.icon+'" aria-hidden="true"></span> ':'';
-				var binding=(item.event>'')?' jqbs-event="'+item.event+'"':'';
+				var binding=(item.event>'')?' jqbs-event="'+item.event+'"':''+((idx)?(' jqbs-index="'+idx+'"'):'');
 				var disabled=(item.disabled===true)?' jqbs-disabled=true':'';
 				var role=(s.role=='presentation')?' role="presentation"':'';
 				if (item.panel) {
@@ -100,9 +104,9 @@
 				var html='';
 				for (var i in menu) {
 					if (menu[i].dropdown) {
-						if (menu[i].dropdown.constructor===Array) html+=renderMenuItem(menu[i], true); else jqBS.misc.debug('warn', '@menu_dropdown_not_array', jqBS);
+						if (menu[i].dropdown.constructor===Array) html+=renderMenuItem(menu[i], true, i); else jqBS.misc.debug('warn', '@menu_dropdown_not_array', jqBS);
 						}
-					else html+=renderMenuItem(menu[i], false);
+					else html+=renderMenuItem(menu[i], false, i);
 					}
 				html='<ul class="'+cssClass+'">'+html+'</ul>';
 				return html;

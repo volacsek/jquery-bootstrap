@@ -27,6 +27,7 @@ The implemented plugins:
 * [jqbsPanel()](#jqbspanel)
 * [jqbsButtonGroup()](#jqbsbuttongroup) -- *group* and *toolbar*
 * [jqbsButton()](#jqbsbutton)
+* [jqbsListGroup()](#jqbsListGroup)
 
 
 Install and use
@@ -58,6 +59,7 @@ The navbar specification is a dataset, what is type of [jqbs-navbar](#jqbs-navba
 
 #### jqbsTab()
 Create and bind a bootstrap nav -- style of *tabs* or *pills* -- for jQuery selector specified html `<div>` element.
+
 **Usage:**
 <pre>
 &lt;div id="divID"&gt;&lt;/div&gt;
@@ -89,6 +91,7 @@ setBody(*html*) | *html*:&nbsp;string | - | Set html content of component body.
 ....
 #### jqbsButton()
 Create and bind a bootstrap button for jQuery selector specified html `<button>` element.
+
 **Usage:**
 <pre>
 &lt;button id="btnID"&gt;&lt;/button&gt;
@@ -102,6 +105,7 @@ The button specification is a dataset, what is type of [jqbs-button ](#jqbs-butt
 
 #### jqbsListGroup()
 Create and bind a bootstrap **list-group** for jQuery selector specified html `<div>` element.
+
 **Usage:**
 <pre>
 &lt;div id="listID"&gt;&lt;/div&gt;
@@ -139,6 +143,7 @@ dropdown | [jqbs&#8209;menu](#jqbs-menu)[] | - | Elements of dropdown menu.
 
 #####Not documented **runtime** properties of jqbs-menu
 >There are used by contribution between plugins of this collection.
+
 Option | Type | Default | Description
 ---|---|---|---
 role | string | - | Can be: `'presentation'` or empty.
@@ -183,6 +188,7 @@ data | *all* | - | This data will be passed to the `$eventTarget` with event whe
 
 #### jqbs-listitem-label
 Custom content of list item.
+
 Option | Type | Default | Description
 ---|---|---|---
 header | string | - | Header of list item.

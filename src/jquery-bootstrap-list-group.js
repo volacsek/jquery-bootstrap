@@ -29,9 +29,9 @@
 				}
 
 			function renderElementHTML(element) {
-				var text='';
-				if (typeof element=='string') text=element;
-				else if (typeof element.label=='string') text=element.label;
+				var text=(element.badge)?('<span class="badge">'+element.badge+'</span>'):'';
+				if (typeof element=='string') text+=element;
+				else if (typeof element.label=='string') text+=element.label;
 				else if (element.label) {
 					if (element.label.header) text+='<h4 class="list-group-item-heading">'+element.label.header+'</h4>';
 					if (element.label.text) text+='<p class="list-group-item-text">'+element.label.text+'</p>';

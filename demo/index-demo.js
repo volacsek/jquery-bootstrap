@@ -83,9 +83,9 @@ var demo=function(options) {
 				'First element',
 				'Second element',
 				{ label: 'Third element', disabled: true },
-				{ label: { header: 'Fourth element', text: 'With more text ...' } },
-				{ label: 'Fifth success element', type: 'success', data: { original: 'It\'s defined!' } },
-				{ label: { header: 'Sixth element', text: 'Default active info with more text ...' }, type: 'info', active: true }
+				{ label: { header: 'Fourth element', text: 'With more text ...' }, badge: 10 },
+				{ label: 'Fifth success element', type: 'success', data: { original: 'It\'s defined!' }, badge: '?' },
+				{ label: { header: 'Sixth element', text: 'Default active info with more text ...' }, type: 'info', active: true, badge: 25 }
 				],
 			event: 'demo.listgroupClicked',
 			$eventTarget: s.$wr
